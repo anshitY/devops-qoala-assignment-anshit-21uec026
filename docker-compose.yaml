@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: local-nginx
+    ports:
+      - "80:80"  # Fix: 'eighty' should be '80'
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf  # Fix: Corrected 'nginx.confi' to 'nginx.conf'
+    networks:
+      - nginx-network
+
+  python-app:
+    image: local-python-app
+    container_name: python_app
+    expose:
+      - "8000"  # Fix: 'eight thousand' should be '8000'
+    networks:
+      - nginx-network
+
+networks:
+  nginx-network:
+    driver: bridge  # Fix: 'bridg' should be 'bridge'
+    options:
+      complex_option: value  # Fix: 'compelex_option' corrected to 'complex_option'
